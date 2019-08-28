@@ -34,7 +34,8 @@ expect	{
 
 expect "#*"
 send "/scan.sh &\r"
-expect "#*\r"
+set o "\[1\]"
+expect "\[1\]*\r"
 send "exit\r"
 }
 
