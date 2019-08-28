@@ -1,6 +1,6 @@
 #! /usr/bin/expect -f
 set timeout -1
-#Take command for run at remote machine
+#Take command for run at remote machine i
 #The command start as demon
 proc read_ip {} {
 	set f [open "ip_host.txt"]
