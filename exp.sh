@@ -14,9 +14,7 @@ proc read_ip {} {
 
 	close $f
 
-	#foreach i $ip {
-	#	run_ssh $i
-	#	}		
+			
 }
 
 
@@ -34,7 +32,6 @@ expect	{
 
 expect "#*"
 send "/scan.sh &\r"
-set o "\[1\]"
 expect "\[1\]*\r"
 send "exit\r"
 }
