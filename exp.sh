@@ -1,26 +1,22 @@
 #! /usr/bin/expect -f
 set timeout -1
-
-
+#Take command for run at remote machine
+#The command start as demon
 proc read_ip {} {
 	set f [open "ip_host.txt"]
-	#set ip [split [read $f] "\n"]
-	#set len [llength $ip]
-	#puts "$len"
-	
+	set VAR [lindex $::argv 0]
 	while { [gets $f line] >= 0 } {
-		run_ssh $line
+	
+		run_ssh $line $VAR
 	}
 
 	close $f
 
-	#foreach i $ip {
-	#	run_ssh $i
-	#	}		
+	
 }
 
 
-proc run_ssh { MY_COUNT } {
+proc run_ssh { MY_COUNT MY_COMMAND } {
 set DRWEB "/opt/drweb/drweb"
 spawn ssh root@$MY_COUNT 
 expect	{
@@ -33,8 +29,8 @@ expect	{
 }	
 
 expect "#*"
-send "/scan.sh &\r"
-set o "\[1\]"
+#send "/scan.sh &\r"
+send "$MY_COMMAND &\r"
 expect "\[1\]*\r"
 send "exit\r"
 }
