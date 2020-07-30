@@ -1,7 +1,8 @@
 #! /bin/bash
 
 #echo $PING
-
+#результат: будет создан файл "ip_host.txt
+#измени сеть под свою 
 for (( ip=1; ip < 255; ip++)) 
 do
        	#ping -c 1 -t 1 192.168.3.$ip > /dev/null && echo "${ip} is up"; 
