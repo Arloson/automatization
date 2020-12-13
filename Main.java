@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Stack;
 public class Main {
     public static void main(String[] args) throws IOException {
-        File f = new File("d:\\");
+        File f = new File(args[0]);
         Stack<File> stack = new Stack<>();
         stack.push(f);
         while (!stack.isEmpty()){
@@ -15,7 +15,7 @@ public class Main {
                     stack.push(file);
                 }
             }else{
-                if(root.getAbsolutePath().contains(args[0])){
+                if(root.getAbsolutePath().contains(args[1])){
                     System.err.println(root.getAbsolutePath());
 
                 }
